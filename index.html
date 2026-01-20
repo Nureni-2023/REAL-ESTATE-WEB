@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Navigation</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .list-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.2rem;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        /* Style the link as a button */
+        .list-link {
+            display: block;
+            width: 150px;
+            padding: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            background-color: #fff;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .list-link:hover {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .list-link:active {
+            transform: translateY(0);
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-container">
+        <h2>Select a Page</h2>
+        <ul>
+            <li><a href="a.html" class="list-link">Go to A</a></li>
+            <li><a href="b.html" class="list-link">Go to B</a></li>
+            <li><a href="c.html" class="list-link">Go to C</a></li>
+            <li><a href="d.html" class="list-link">Go to D</a></li>
+            <li><a href="index1.html" class="list-link">Go to E</a></li>  
+        </ul>
+    </div>
+</body>
+</html>

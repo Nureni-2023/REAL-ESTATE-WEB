@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | The 2026 Global Ultra-Luxury Ecosystem</title>
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* AURA EVOLVED DESIGN SYSTEM */
+        :root {
+            --accent: #d4af37;
+            --accent-hover: #b8962d;
+            --primary: #4066ff;
+            --dark-bg: #050505;
+            --dark-surface: #0f0f0f;
+            --dark-elevated: #161616;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --text-dim: #555555;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(255, 255, 255, 0.02);
+            --section-pad: 140px;
+            --container-max: 1400px;
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; font-size: 16px; background: var(--dark-bg); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            color: var(--text-main); 
+            background: var(--dark-bg);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, .playfair { font-family: 'Playfair Display', serif; font-weight: 700; }
+        p { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 400; line-height: 1.8; }
+        .uppercase { text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: 700; }
+
+        /* LAYOUT UTILS */
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 5%; }
+        .section { padding: var(--section-pad) 0; position: relative; border-bottom: 1px solid var(--border); }
+        .grid { display: grid; gap: 30px; }
+        .center { text-align: center; }
+        .v-center { align-items: center; }
+        .flex { display: flex; }
+        .space-between { justify-content: space-between; }
+        
+        /* COMPONENTS */
+        .badge {
+            background: var(--accent);
+            color: #000;
+            padding: 6px 14px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 20px 40px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.4s var(--ease);
+            display: inline-flex;
+            text-decoration: none;
+            border: 1px solid var(--border);
+        }
+        .btn-gold { background: var(--accent); color: #000; border: none; }
+        .btn-gold:hover { background: #fff; transform: translateY(-5px); }
+
+        .image-reveal {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .image-reveal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1.5s var(--ease);
+        }
+        .image-reveal:hover img { transform: scale(1.08); }
+
+        /* SPECIFIC SECTIONS */
+        .nav-fixed {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 25px 0; background: rgba(5,5,5,0.8); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .metric-card {
+            background: var(--dark-surface);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .metric-val { font-size: 3rem; color: var(--accent); margin-bottom: 10px; }
+
+        .timeline-item { padding: 30px 0; border-left: 1px solid var(--accent); padding-left: 40px; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -5px; top: 40px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; }
+
+        @media (max-width: 1024px) {
+            .grid-3 { grid-template-columns: 1fr 1fr; }
+            .section { padding: 80px 0; }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVIGATION -->
+    <nav class="nav-fixed">
+        <div class="container flex space-between v-center">
+            <h2 class="playfair">AURA<span style="color: var(--accent)">.</span></h2>
+            <div class="flex" style="gap: 30px;">
+                <a href="#estates" class="uppercase" style="color:#fff; text-decoration:none;">Estates</a>
+                <a href="#lifestyle" class="uppercase" style="color:#fff; text-decoration:none;">Lifestyle</a>
+                <a href="#intelligence" class="uppercase" style="color:#fff; text-decoration:none;">Intelligence</a>
+            </div>
+            <a href="#" class="btn-gold" style="padding: 10px 20px; font-size: 0.6rem;">Member Login</a>
+        </div>
+    </nav>
+
+    <!-- 2. HERO (S1) -->
+    <header class="section" style="min-height: 100vh; display: flex; align-items: center; background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80') center/cover;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to right, #050505, transparent);"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <p class="badge">Est. 2004</p>
+            <h1 style="font-size: clamp(3.5rem, 10vw, 7rem); line-height: 0.9; margin-bottom: 30px;">The Future of <br><span style="color: var(--accent)">Legacy.</span></h1>
+            <p style="max-width: 600px; font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px;">Curating the world's most significant architectural achievements for the global elite.</p>
+            <div class="flex" style="gap: 20px;">
+                <a href="#estates" class="btn btn-gold">Explore Estates</a>
+                <a href="#lifestyle" class="btn">Our Philosophy</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. TRUSTED BY (S2) -->
+    <section class="section" style="padding: 60px 0; background: #000;">
+        <div class="container">
+            <div class="flex space-between v-center" style="opacity: 0.3; filter: grayscale(1) invert(1);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Forbes_logo.svg/1280px-Forbes_logo.svg.png" height="25">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Sotheby%27s_Logo.svg/1200px-Sotheby%27s_Logo.svg.png" height="25">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Bloomberg_logo.svg/1280px-Bloomberg_logo.svg.png" height="25">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Financial_Times_logo_2014.svg/1280px-Financial_Times_logo_2014.svg.png" height="25">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. GLOBAL INTELLIGENCE (S3) -->
+    <section class="section" id="intelligence">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 80px;">
+                <div>
+                    <p class="uppercase" style="color: var(--accent)">Market Alpha</p>
+                    <h2 style="font-size: 3.5rem; margin: 20px 0;">Intelligence Driven Acquisition</h2>
+                    <p>Our proprietary AI-driven market analysis identifies high-growth luxury districts 18-24 months before they reach public listings.</p>
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; margin-top: 40px;">
+                        <div class="metric-card">
+                            <div class="metric-val">12%</div>
+                            <p class="uppercase">Avg Yield</p>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-val">$4.2B</div>
+                            <p class="uppercase">Portfolio Value</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-reveal" style="height: 600px;">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&w=800&q=80">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FEATURED ESTATES (S4) -->
+    <section class="section" id="estates" style="background: var(--dark-surface);">
+        <div class="container">
+            <div class="flex space-between v-center" style="margin-bottom: 60px;">
+                <h2 style="font-size: 3rem;">Signature Collection</h2>
+                <a href="#" class="btn">View All 1,200 Properties</a>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                <!-- Card 1 -->
+                <div class="image-reveal" style="height: 500px;">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80">
+                    <div style="position: absolute; bottom: 0; padding: 40px; width: 100%; background: linear-gradient(to top, #000, transparent);">
+                        <p class="uppercase" style="color: var(--accent)">Dubai, UAE</p>
+                        <h3>The Sky Garden Penthouse</h3>
+                        <p>$82,000,000</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="image-reveal" style="height: 500px;">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+                    <div style="position: absolute; bottom: 0; padding: 40px; width: 100%; background: linear-gradient(to top, #000, transparent);">
+                        <p class="uppercase" style="color: var(--accent)">Aspen, CO</p>
+                        <h3>Lumière Alpine Retreat</h3>
+                        <p>$34,500,000</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="image-reveal" style="height: 500px;">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80">
+                    <div style="position: absolute; bottom: 0; padding: 40px; width: 100%; background: linear-gradient(to top, #000, transparent);">
+                        <p class="uppercase" style="color: var(--accent)">Cap d'Antibes</p>
+                        <h3>Villa Azure Horizon</h3>
+                        <p>$115,000,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. THE CONCIERGE (S5) -->
+    <section class="section">
+        <div class="container grid v-center" style="grid-template-columns: 1fr 1.2fr; gap: 100px;">
+            <div class="image-reveal" style="height: 700px; border-radius: 400px 400px 0 0;">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80">
+            </div>
+            <div>
+                <p class="badge">Aura Black</p>
+                <h2 style="font-size: 4rem; line-height: 1;">Unrivaled Lifestyle Management</h2>
+                <p style="margin: 30px 0; font-size: 1.1rem; color: var(--text-muted);">From private jet dispatch to personal security detail in emerging markets, Aura Black is the ultimate operating system for the high-net-worth individual.</p>
+                <ul style="list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <li class="timeline-item">Global Logistics</li>
+                    <li class="timeline-item">Tax Advisory</li>
+                    <li class="timeline-item">Private Chefs</li>
+                    <li class="timeline-item">Security Details</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PRIVATE AVIATION (S6) -->
+    <section class="section" style="background: url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=1920&q=80') center/cover;">
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.7);"></div>
+        <div class="container" style="position: relative; z-index: 2; text-align: center;">
+            <h2 style="font-size: 4rem; margin-bottom: 20px;">AURA Wing Division</h2>
+            <p style="max-width: 700px; margin: 0 auto 40px;">Seamless transition from your private residence to your private jet. Integrated booking for G650 and Global 7500 fleets.</p>
+            <a href="#" class="btn btn-gold">Inquire Charter</a>
+        </div>
+    </section>
+
+    <!-- 8. YACHTING (S7) -->
+    <section class="section" style="background: var(--dark-bg);">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1.2fr 1fr;">
+                <div class="image-reveal" style="height: 400px;">
+                    <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1000&q=80">
+                </div>
+                <div style="padding-left: 50px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">AURA Marine</h2>
+                    <p>Berth acquisition and management in Monaco, Portofino, and St. Barths. Partnered with Lürssen and Feadship.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. OFF-MARKET VAULT (S8) -->
+    <section class="section" style="background: var(--dark-elevated);">
+        <div class="container center">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">The Off-Market Vault</h2>
+            <p style="max-width: 600px; margin: 0 auto 40px;">60% of our inventory never reaches the public. Gain access to discreet listings for royalty and institutional investors.</p>
+            <div style="display: inline-block; padding: 20px 40px; border: 1px solid var(--accent); color: var(--accent); cursor: pointer; border-radius: 4px;">REQUEST NDA ACCESS</div>
+        </div>
+    </section>
+
+    <!-- 10. SUSTAINABILITY & ESG (S9) -->
+    <section class="section">
+        <div class="container grid v-center" style="grid-template-columns: 1fr 1fr; gap: 80px;">
+            <div>
+                <p class="uppercase" style="color: var(--accent)">Future Proofing</p>
+                <h2 style="font-size: 3rem; margin: 20px 0;">Green Legacy Estates</h2>
+                <p>Every AURA-certified property undergoes a rigorous ESG audit, ensuring net-zero operation and carbon-negative construction for the next generation.</p>
+            </div>
+            <div class="image-reveal" style="height: 500px;">
+                <img src="https://images.unsplash.com/photo-1449156001433-40439600d83b?auto=format&fit=crop&w=800&q=80">
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. ART & INTERIORS (S10) -->
+    <section class="section" style="background: var(--dark-surface);">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="image-reveal" style="height: 300px;"><img src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=400&q=80"></div>
+                <div style="grid-column: span 2;">
+                    <h2 style="font-size: 3rem;">Art Curation</h2>
+                    <p>We don't just find the house. We fill it with history. Aura Art works with leading galleries to source blue-chip masters and emerging digital assets.</p>
+                </div>
+                <div class="image-reveal" style="height: 300px;"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=400&q=80"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. VIRTUAL REALITY (S11) -->
+    <section class="section">
+        <div class="container center">
+            <h2 style="font-size: 3rem; margin-bottom: 40px;">Spatial Exploration</h2>
+            <div style="height: 600px; border-radius: 20px; background: url('https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=1200&q=80') center/cover; position: relative;">
+                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="width: 80px; height: 80px; background: #fff; border-radius: 50%; margin-bottom: 20px;"></div>
+                    <p class="uppercase">Enter 4K Spatial Tour</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. ADVISORY BOARD (S12) -->
+    <section class="section" style="background: var(--dark-surface);">
+        <div class="container">
+            <h2 style="margin-bottom: 60px;">The Advisory Board</h2>
+            <div class="grid" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="metric-card center">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80" style="width: 80px; border-radius: 50%; margin-bottom: 20px;">
+                    <h3>Marcus Vane</h3>
+                    <p class="uppercase">Ex-Goldman Sachs</p>
+                </div>
+                <div class="metric-card center">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" style="width: 80px; border-radius: 50%; margin-bottom: 20px;">
+                    <h3>Elena Rossi</h3>
+                    <p class="uppercase">Heritage Architect</p>
+                </div>
+                <div class="metric-card center">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" style="width: 80px; border-radius: 50%; margin-bottom: 20px;">
+                    <h3>Kenzo Chen</h3>
+                    <p class="uppercase">Market Strategist</p>
+                </div>
+                <div class="metric-card center">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" style="width: 80px; border-radius: 50%; margin-bottom: 20px;">
+                    <h3>Julian Thorne</h3>
+                    <p class="uppercase">Legal Counsel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. DATA VISUALIZATION (S13) -->
+    <section class="section">
+        <div class="container grid v-center" style="grid-template-columns: 1fr 1fr;">
+            <div class="image-reveal" style="height: 400px; background: var(--dark-surface); padding: 50px;">
+                <!-- Mockup graph -->
+                <div style="height: 100%; width: 100%; border-left: 1px solid #333; border-bottom: 1px solid #333; display: flex; align-items: flex-end; gap: 10px;">
+                    <div style="height: 40%; width: 20px; background: var(--accent);"></div>
+                    <div style="height: 60%; width: 20px; background: var(--accent);"></div>
+                    <div style="height: 90%; width: 20px; background: var(--accent);"></div>
+                    <div style="height: 75%; width: 20px; background: var(--accent);"></div>
+                </div>
+            </div>
+            <div style="padding-left: 80px;">
+                <h2 style="font-size: 2.5rem;">Asset Appreciation Indices</h2>
+                <p>Track your portfolio's performance in real-time against luxury indices like the Knight Frank Prime Global Cities Index.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. PRIVATE EVENTS (S14) -->
+    <section class="section" style="background: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1920&q=80') center/cover;">
+        <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.85);"></div>
+        <div class="container" style="position: relative;">
+            <p class="badge">Exclusive</p>
+            <h2 style="font-size: 3rem;">AURA Gala Series</h2>
+            <p>Annual gatherings in Venice, Tokyo, and New York for our top-tier clientele.</p>
+        </div>
+    </section>
+
+    <!-- 16. THE ACADEMY (S15) -->
+    <section class="section">
+        <div class="container">
+            <h2 style="margin-bottom: 40px;">Luxury Heritage Academy</h2>
+            <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="metric-card">
+                    <h3>Preservation</h3>
+                    <p>Educational series on maintaining Grade-I listed assets.</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Philanthropy</h3>
+                    <p>Structuring charitable trusts via real estate holdings.</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Succession</h3>
+                    <p>Workshops on intergenerational wealth transfer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. PRESS ROOM (S16) -->
+    <section class="section" style="background: var(--dark-surface);">
+        <div class="container">
+            <h2 style="margin-bottom: 50px;">Global Press</h2>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div style="padding: 30px; border: 1px solid var(--border);">
+                    <p class="uppercase" style="color: var(--accent)">The NY Times</p>
+                    <h3 style="margin: 15px 0;">"How AURA is Redefining the Billionaire's Square Mile"</h3>
+                    <a href="#" style="color: #fff;">Read Article →</a>
+                </div>
+                <div style="padding: 30px; border: 1px solid var(--border);">
+                    <p class="uppercase" style="color: var(--accent)">Robb Report</p>
+                    <h3 style="margin: 15px 0;">"The 10 Most Expensive Penthouses of 2026"</h3>
+                    <a href="#" style="color: #fff;">Read Article →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. TESTIMONIALS (S17) -->
+    <section class="section">
+        <div class="container center">
+            <h2 style="font-size: 3rem; font-style: italic; max-width: 800px; margin: 0 auto;">"Aura doesn't just manage properties; they manage legacies. Their insight into the Asian market saved us millions during the acquisition phase."</h2>
+            <p class="uppercase" style="margin-top: 40px; color: var(--accent);">Managing Director, SE Global Capital</p>
+        </div>
+    </section>
+
+    <!-- 19. GLOBAL OFFICE MAP (S18) -->
+    <section class="section" style="background: var(--dark-elevated);">
+        <div class="container grid v-center" style="grid-template-columns: 1fr 1.5fr;">
+            <div>
+                <h2 style="font-size: 3rem;">Global Presence</h2>
+                <ul style="list-style:none; margin-top: 30px;">
+                    <li style="margin-bottom: 10px;">LONDON (HQ)</li>
+                    <li style="margin-bottom: 10px;">HONG KONG</li>
+                    <li style="margin-bottom: 10px;">NEW YORK</li>
+                    <li style="margin-bottom: 10px;">DUBAI</li>
+                </ul>
+            </div>
+            <div class="image-reveal" style="height: 400px; opacity: 0.5;">
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80">
+            </div>
+        </div>
+    </section>
+
+    <!-- 20. CONTACT (S19) -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 100px;">
+                <div>
+                    <h2 style="font-size: 3.5rem;">Commence a Private Conversation</h2>
+                    <p style="margin: 30px 0;">Due to the sensitive nature of our holdings, we require a verification of identity for full portal access.</p>
+                </div>
+                <form>
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" placeholder="FULL NAME" style="width: 100%; padding: 20px; background: var(--dark-surface); border: 1px solid var(--border); color: #fff;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="email" placeholder="SECURE EMAIL" style="width: 100%; padding: 20px; background: var(--dark-surface); border: 1px solid var(--border); color: #fff;">
+                    </div>
+                    <button class="btn btn-gold" style="width: 100%;">REQUEST CONSULTATION</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 21. FOOTER (S20) -->
+    <footer class="section" style="background: #000; padding: 100px 0;">
+        <div class="container">
+            <div class="grid" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+                <div>
+                    <h2 class="playfair">AURA<span style="color: var(--accent)">.</span></h2>
+                    <p style="color: var(--text-dim); margin-top: 20px;">The international standard in high-value asset acquisition.</p>
+                </div>
+                <div>
+                    <h4 class="uppercase">Sectors</h4>
+                    <p style="color: var(--text-dim);">Estates<br>Marine<br>Aviation<br>Art</p>
+                </div>
+                <div>
+                    <h4 class="uppercase">Connect</h4>
+                    <p style="color: var(--text-dim);">Instagram<br>LinkedIn<br>Twitter<br>Vimeo</p>
+                </div>
+                <div>
+                    <h4 class="uppercase">Office</h4>
+                    <p style="color: var(--text-dim);">12 Berkeley Square<br>Mayfair, London<br>W1J 6BQ</p>
+                </div>
+            </div>
+            <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; color: var(--text-dim); font-size: 0.7rem;">
+                <p>© 2026 AURA GLOBAL. ALL RIGHTS RESERVED.</p>
+                <div class="flex" style="gap: 20px;">
+                    <span>PRIVACY</span>
+                    <span>ANTI-MONEY LAUNDERING</span>
+                    <span>TERMS</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 1s var(--ease)';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
